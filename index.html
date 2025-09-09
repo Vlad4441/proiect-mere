@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Chestionar Depozitare Mere</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("mere_fundal.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px 40px;
+      max-width: 700px;
+      width: 95%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .question { margin-bottom: 20px; }
+
+    .question p {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+
+    label { display: block; margin: 5px 0; cursor: pointer; }
+    input[type="radio"], input[type="checkbox"] { margin-right: 10px; }
+
+    button {
+      display: block; margin: 20px auto 0;
+      background: #27ae60; color: white; border: none;
+      padding: 12px 20px; border-radius: 15px; cursor: pointer; font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover { background: #219150; }
+
+    .result {
+      margin-top: 20px; font-size: 1.2em; font-weight: bold;
+      padding: 15px; border-radius: 12px; text-align: center;
+    }
+
+    .long  { background: #2ecc71; color: white; }  /* verde */
+    .medium{ background: #f1c40f; color: black; }  /* galben */
+    .short { background: #e67e22; color: white; }  /* portocaliu */
+    .none  { background: #e74c3c; color: white; }  /* roșu */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🍎 Chestionar Depozitare Mere</h2>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Recoltarea și începerea încărcării celulelor la perioada corectă de maturitate</p>
+        <label><input type="radio" name="q1" value="10"> până la 8 zile</label>
+        <label><input type="radio" name="q1" value="9"> până la 10 zile</label>
+        <label><input type="radio" name="q1" value="8"> până la 12 zile</label>
+        <label><input type="radio" name="q1" value="7"> până la 15 zile</label>
+        <label><input type="radio" name="q1" value="4"> mai mult de 20 zile</label>
+      </div>
+
+      <div class="question">
+        <p>2. Timpul până la răcirea celulei la 5/6°C</p>
+        <label><input type="radio" name="q2" value="10"> 2 zile de la încărcarea celulei</label>
+        <label><input type="radio" name="q2" value="9"> 3 zile de la încărcarea celulei</label>
+        <label><input type="radio" name="q2" value="8"> 4 zile de la încărcarea celulei</label>
+        <label><input type="radio" name="q2" value="7"> 5 zile de la încărcarea celulei</label>
+        <label><input type="radio" name="q2" value="4"> mai mult de 7 zile de la încărcarea celulei</label>
+      </div>
+
+      <div class="question">
+        <p>3. Tratament cu Fitomag</p>
+        <label><input type="radio" name="q3" value="10"> 5–7 zile de la recoltare</label>
+        <label><input type="radio" name="q3" value="8"> 7–9 zile de la recoltare</label>
+        <label><input type="radio" name="q3" value="6"> 9–10 zile de la recoltare</label>
+        <label><input type="radio" name="q3" value="4"> mai mult de 10 zile de la recoltare</label>
+      </div>
+
+      <div class="question">
+        <p>4. Numărul de soiuri de măr într-o celulă</p>
+        <label><input type="radio" name="q4" value="10"> 1 soi</label>
+        <label><input type="radio" name="q4" value="5"> 2 sau mai multe soiuri compatibile</label>
+        <label><input type="radio" name="q4" value="1"> 2 sau mai multe soiuri incompatibile</label>
+        <label><input type="radio" name="q4" value="-10"> 1 varietate sensibilă la încălzire + altele netratate</label>
+      </div>
+
+      <div class="question">
+        <p>5. Temperatura de depozitare – în pulpa fructelor</p>
+        <label><input type="radio" name="q5" value="10"> Optim pentru soi</label>
+        <label><input type="radio" name="q5" value="8"> +0.5°C</label>
+        <label><input type="radio" name="q5" value="6"> +1°C</label>
+        <label><input type="radio" name="q5" value="4"> +1.5°C</label>
+      </div>
+
+      <div class="question">
+        <p>6. Depozitare în atmosferă controlată</p>
+        <label><input type="radio" name="q6" value="10"> Până la 5 zile de la încărcare</label>
+        <label><input type="radio" name="q6" value="4"> Mai mult de 20 de zile de la încărcare</label>
+      </div>
+
+      <div class="question">
+        <p>7. Test de stres – emisii de C<sub>2</sub>H<sub>4</sub></p>
+        <label><input type="radio" name="q7" value="10"> Excelent</label>
+        <label><input type="radio" name="q7" value="7"> Foarte bine</label>
+        <label><input type="radio" name="q7" value="5"> Bine</label>
+        <label><input type="radio" name="q7" value="1"> Rău</label>
+      </div>
+
+      <!-- FACTORI SUPLIMENTARI (checkbox-uri) -->
+      <div class="question">
+        <p>8. Factori suplimentari (alegeți toate cele aplicabile)</p>
+
+        <!-- Pozitive -->
+        <label><input type="checkbox" name="extra" value="4"> Absorbant de etilenă</label>
+        <label><input type="checkbox" name="extra" value="2"> Nivel de etilenă foarte scăzut în celulă</label>
+        <label><input type="checkbox" name="extra" value="4"> Fermitate bună la recoltare</label>
+
+        <!-- Negative -->
+        <label><input type="checkbox" name="extra" value="-2"> Grindină</label>
+        <label><input type="checkbox" name="extra" value="-4"> Vitrescere / sticlozitate</label>
+        <label><input type="checkbox" name="extra" value="-2"> Recoltă după ploaie</label>
+        <label><input type="checkbox" name="extra" value="-4"> Fără tratamente cu fungicide</label>
+        <label><input type="checkbox" name="extra" value="-2"> Ventilație proastă</label>
+        <label><input type="checkbox" name="extra" value="-4"> Sezon cald și temperaturi înalte înainte de recoltare (soiuri sensibile la pătare)</label>
+      </div>
+
+      <button type="button" onclick="showResult()">Trimite răspunsurile</button>
+    </form>
+
+    <div class="result" id="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    function clearVerdictClasses(el) {
+      el.classList.remove("long", "medium", "short", "none");
+    }
+
+    function showResult() {
+      const form = document.getElementById("quizForm");
+      const resultDiv = document.getElementById("result");
+
+      // Validate that Q1–Q7 are all answered (extras are optional)
+      const requiredNames = ["q1","q2","q3","q4","q5","q6","q7"];
+      const missing = requiredNames.filter(n => !form.querySelector(`input[name="${n}"]:checked`));
+
+      if (missing.length > 0) {
+        resultDiv.style.display = "block";
+        clearVerdictClasses(resultDiv);
+        resultDiv.textContent = "Vă rugăm să răspundeți la toate întrebările 1–7 înainte de a vedea scorul.";
+        return;
+      }
+
+      // Compute score
+      let score = 0;
+      const data = new FormData(form);
+      for (let value of data.values()) {
+        const v = parseInt(value, 10);
+        if (!isNaN(v)) score += v;
+      }
+
+      // Decide verdict (rubric bands + smaller hybrid bands)
+      let verdict = "";
+      resultDiv.className = "result";
+      clearVerdictClasses(resultDiv);
+      resultDiv.style.display = "block";
+
+      if (score >= 70) { // treat >80 as long too
+        verdict = "Depozitare termen lung";
+        resultDiv.classList.add("long");
+      } else if (score >= 61 && score <= 69) {
+        verdict = "Depozitare termen lung/mediu";
+        resultDiv.classList.add("medium");
+      } else if (score >= 30 && score <= 60) {
+        verdict = "Depozitare termen mediu";
+        resultDiv.classList.add("medium");
+      } else if (score >= 23 && score <= 29) {
+        verdict = "Depozitare termen mediu/scurt";
+        resultDiv.classList.add("short");
+      } else if (score >= 15 && score <= 22) {
+        verdict = "Depozitare termen scurt";
+        resultDiv.classList.add("short");
+      } else if (score < 15) {
+        verdict = "Nu se poate păstra, doar vânzare";
+        resultDiv.classList.add("none");
+      } else {
+        verdict = "Scorul este în afara limitelor definite";
+      }
+
+      resultDiv.innerHTML = `Scor total: ${score} → Verdict: ${verdict}<br><small>NB: Evaluarea se efectuează în termen de 30 de zile de la închiderea celulei sau de la tratamentul cu 1-MCP.</small>`;
+    }
+  </script>
+</body>
+</html>
